@@ -9,7 +9,9 @@ Rewritten to use multi-threading (ThreadPoolExecutor) instead of multi-processin
 import litellm
 from concurrent.futures import ThreadPoolExecutor
 
-from litellm import completion
+from litellm import completion as litellm_completion
+from tdb.operators.llm_utils import completion
+
 from tdb.operators.semantic_operator import SemanticOperator
 
 
@@ -25,7 +27,7 @@ def _filter_completion_wrapper(item_text, kwargs):
     """
     # Ensure parameters are dropped for logging where applicable
     litellm.drop_params = True
-    response = completion(**kwargs)
+    response = completion(kwargs=kwargs)
     return item_text, kwargs, response
 
 

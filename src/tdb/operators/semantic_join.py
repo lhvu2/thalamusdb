@@ -5,7 +5,9 @@ Created on Jul 20, 2025
 '''
 import traceback
 
-from litellm import completion
+from litellm import completion as litellm_completion
+
+from tdb.operators.llm_utils import completion
 from tdb.operators.semantic_operator import SemanticOperator
 
 

@@ -1,0 +1,34 @@
+{
+	"models":[
+		{
+			"modalities":["text", "image"], "priority": 1,
+			"kwargs": {
+			    "filter": {
+					"model": "RITS/Qwen/Qwen2-VL-72B-Instruct",
+					"temperature": 0,
+					"max_tokens": 1,
+					"reasoning_effort": "disable"
+				},
+				"join": {
+				    "model": "RITS/Qwen/Qwen2-VL-72B-Instruct",
+					"temperature": 0,
+					"stop": ["."],
+					"reasoning_effort": "disable"
+                }
+			}
+		},
+		{
+			"modalities":["text", "image"], "priority": 10,
+			"kwargs": {
+			    "filter": {
+					"model": "RITS/Qwen/Qwen2-VL-72B-Instruct",
+					"reasoning_effort": "minimal"
+				},
+				"join": {
+				    "model": "RITS/Qwen/Qwen2-VL-72B-Instruct",
+					"reasoning_effort": "minimal"
+                }
+			}
+		}
+	]
+}
