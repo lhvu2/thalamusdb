@@ -34,6 +34,7 @@ def test_limit():
     query = Query(cars_db, sql)
     assert query.limit == float('inf')
     assert 'limit' in query.qualified_sql.lower()
+    print("Done running test_limit()")
 
 
 def test_parsing():
@@ -59,3 +60,9 @@ def test_parsing():
             assert sem_pred.left_column == 'pic'
             assert sem_pred.right_column == 'pic'
             assert sem_pred.condition == 'are similar'
+    
+    print("Done running test_parsing()")
+
+if __name__ == "__main__":
+    test_limit()
+    test_parsing()
